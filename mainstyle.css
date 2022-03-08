@@ -1,0 +1,37 @@
+body {
+    background-image: url("assets/backgrounds/game_background_1.png");
+    background-size: 100%;
+}
+
+.tekst {
+    font-size: 150%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10%;
+    padding: 30px 20px;
+}
+
+.menu {
+    position: absolute;
+    z-index: 1;
+    width: 200px;
+    top: 20%;
+    background-color: #AF4D38;
+    border-style: solid;
+    border-color: #722B1C;
+    border-width: 5px;
+}
+
+.menu a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 20px;
+    display: block;
+}
+
+.menu a:hover {
+    background-color: #722B1C;
+}

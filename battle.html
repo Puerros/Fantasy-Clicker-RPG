@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>RPG Clicker</title>
+    <meta charset="UTF-8">
+    <meta name="description" value="RPG Clicker">
+    <meta name="keywords" value="rpg, clicker, gra">
+    <meta name="author" value="Adam Napora">
+    <link rel="stylesheet" type="text/css" href="battlestyle.css">
+    <link rel="stylesheet" type="text/css" href="ui.css">
+    <link rel="stylesheet" type="text/css" href="stats.css">
+    <link rel="stylesheet" type="text/css" href="shop.css"> 
+    <link rel="stylesheet" type="text/css" href="eq.css">
+    <script type="text/javascript" src="ui.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+</head>
+
+<body onload="Initialize();">
+    <div id="gold">
+        0
+    </div>
+
+    <div class="battlescene">
+        <p class="level">Poziom <span id="level">#</span></p>
+
+        <div id="monster-hp"></div>
+
+        <div id="monster" onclick="PlayerAttack();">
+            <img id="monster_img" src="#" alt="noimage">
+        </div>
+
+        <div id="player-info">
+            <p id="player-hp-text">HP: </p>
+            <div id="player-hp"></div>
+        </div>
+    </div>
+
+    <div id="menubox" class="menu">
+        <div class="menuoption"><a href="homepage.html">Strona Główna</a></div>
+        <div class="menuoption"><a href="battle.html">Walka</a></div>
+        <div class="menuoption"><a href="credits.html">Od Autora</a></div>
+    </div>
+
+    <div id="battlemenubox" class="battlemenu">
+        <div class="battlemenuoption" onclick="ShowStatsBox();">Statystyki</div>
+        <div class="battlemenuoption" onclick="ShowEqBox();">Ekwipunek</div>
+        <div class="battlemenuoption" onclick="ShowShopBox();">Sklep</div>
+    </div>
+
+    <div id="stats" class="statsbox">
+        <img id="closestats" class="closebox" src="assets/icons/close.png" onclick="CloseStatsBox();"></img>
+
+        <div class="statsinfo">
+            <p style="display: inline-block">Poziom <p id="player-lvl" style="display: inline-block">#</p></p>
+            <p style="display: inline-block">Doswiadczenie: <p id="player-exp" style="display: inline-block">#</p></p>
+            <p style="display: inline-block">Obrazenia: <p id="player-dmg" style="display: inline-block">#</p></p>
+            <p style="display: inline-block">Obrona: <p id="player-def" style="display: inline-block">#</p></p>
+        </div>
+    </div>
+
+    <div id="shop" class="shopbox">
+        <img id="closeshop" class="closebox" src="assets/icons/close.png" onclick="CloseShopBox();"></img>
+
+        <div id="weapons">
+            <div class="item">
+                <img class="icon" src="assets/icons/weapon.png"></img>
+                <div class="name" id="w1-name">#</div>
+                <div class="dmg" id="w1-dmg">#</div>
+                <div class="buy-bttn" id="w1-buy" onclick="BuyItem(1);">KUP</div>
+                <div class="cost" id="w1-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+
+            <div class="item" style="transform: translate(0, 30px)">
+                <img class="icon" src="assets/icons/weapon.png"></img>
+                <div class="name" id="w2-name">#</div>
+                <div class="dmg" id="w2-dmg">#</div>
+                <div class="buy-bttn" id="w2-buy" onclick="BuyItem(2);">KUP</div>
+                <div class="cost" id="w2-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+
+            <div class="item" style="transform: translate(0, 60px)">
+                <img class="icon" src="assets/icons/weapon.png"></img>
+                <div class="name" id="w3-name">#</div>
+                <div class="dmg" id="w3-dmg">#</div>
+                <div class="buy-bttn" id="w3-buy" onclick="BuyItem(3);">KUP</div>
+                <div class="cost" id="w3-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+
+            <div class="item" style="transform: translate(0, 90px)">
+                <img class="icon" src="assets/icons/weapon.png"></img>
+                <div class="name" id="w4-name">#</div>
+                <div class="dmg" id="w4-dmg">#</div>
+                <div class="buy-bttn" id="w4-buy" onclick="BuyItem(4);">KUP</div>
+                <div class="cost" id="w4-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+            
+            <div class="item" style="transform: translate(0, 120px)">
+                <img class="icon" src="assets/icons/weapon.png"></img>
+                <div class="name" id="w5-name">#</div>
+                <div class="dmg" id="w5-dmg">#</div>
+                <div class="buy-bttn" id="w5-buy" onclick="BuyItem(5);">KUP</div>
+                <div class="cost" id="w5-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+        </div>
+
+        <div id="armors" style="transform: translate(0, 250px)">
+            <div class="item">
+                <img class="icon" src="assets/icons/armor.png"></img>
+                <div class="name" id="a1-name">#</div>
+                <div class="dmg" id="a1-dmg">#</div>
+                <div class="buy-bttn" id="a1-buy" onclick="BuyItem(6);">KUP</div>
+                <div class="cost" id="a1-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+
+            <div class="item" style="transform: translate(0, 30px)">
+                <img class="icon" src="assets/icons/armor.png"></img>
+                <div class="name" id="a2-name">#</div>
+                <div class="dmg" id="a2-dmg">#</div>
+                <div class="buy-bttn" id="a2-buy" onclick="BuyItem(7);">KUP</div>
+                <div class="cost" id="a2-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+
+            <div class="item" style="transform: translate(0, 60px)">
+                <img class="icon" src="assets/icons/armor.png"></img>
+                <div class="name" id="a3-name">#</div>
+                <div class="dmg" id="a3-dmg">#</div>
+                <div class="buy-bttn" id="a3-buy" onclick="BuyItem(8);">KUP</div>
+                <div class="cost" id="a3-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+
+            <div class="item" style="transform: translate(0, 90px)">
+                <img class="icon" src="assets/icons/armor.png"></img>
+                <div class="name" id="a4-name">#</div>
+                <div class="dmg" id="a4-dmg">#</div>
+                <div class="buy-bttn" id="a4-buy" onclick="BuyItem(9);">KUP</div>
+                <div class="cost" id="a4-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+            
+            <div class="item" style="transform: translate(0, 120px)">
+                <img class="icon" src="assets/icons/armor.png"></img>
+                <div class="name" id="a5-name">#</div>
+                <div class="dmg" id="a5-dmg">#</div>
+                <div class="buy-bttn" id="a5-buy" onclick="BuyItem(10);">KUP</div>
+                <div class="cost" id="a5-cost">#</div>
+                <img class="cost-icon" src="assets/icons/gold.png"></img>
+            </div>
+        </div>
+    </div>
+
+    <div id="eq" class="eqbox">
+        <img id="closeshop" class="closebox" src="assets/icons/close.png" onclick="CloseEqBox();"></img>
+
+        <div id="eq-weapon" class="item" style="transform: translate(0, 60px)">
+            <img class="icon" src="assets/icons/weapon.png"></img>
+            <div class="name" id="eq-w-name">#</div>
+            <div class="dmg" id="eq-w-dmg">#</div>
+        </div>
+
+        <div id="eq-armor" class="item" style="transform: translate(0, 120px)">
+            <img class="icon" src="assets/icons/armor.png"></img>
+            <div class="name" id="eq-a-name">#</div>
+            <div class="dmg" id="eq-a-dmg">#</div>
+        </div>
+
+        <div id="potion" class="item" style="transform: translate(0, 240px)">
+            <img class="icon" src="assets/icons/gold.png"></img>
+            <div class="name" id="potion-name">#</div>
+            <div class="dmg" id="potion-heal">#</div>
+            <div class="buy-bttn" id="potion-buy" onclick="BuyItem(11);">KUP</div>
+            <div class="cost" id="potion-cost">#</div>
+            <img class="cost-icon" src="assets/icons/gold.png"></img>
+        </div>
+    </div>
+
+    <img id="on-death" src="assets/backgrounds/youdied.jpg"></img>
+</body>
+
+</html>

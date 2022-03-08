@@ -1,0 +1,61 @@
+.menu {
+    position: fixed;
+    overflow: hidden;
+    z-index: 5;
+    top: 0px;
+    background-color: #AF4D38;
+    border-style: solid;
+    border-color: #722B1C;
+    border-width: 5px;
+}
+
+.menuoption {
+    float: left;
+    padding: 20px;
+    width: 120px;
+}
+
+.menuoption a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.menuoption:hover {
+    background-color: #722B1C;
+}
+
+.battlemenu {
+    position: fixed;
+    overflow: hidden;
+    z-index: 1;
+    top: 30%;
+    background-color: #AF4D38;
+    border-style: solid;
+    border-color: #722B1C;
+    border-width: 5px;
+    width: 200px;
+}
+
+.battlemenuoption {
+    padding: 20px;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.battlemenuoption a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.battlemenuoption:hover {
+    background-color: #722B1C;
+}

@@ -1,0 +1,107 @@
+body {
+    background-image: url("assets/backgrounds/game_background_3.\ 2.png");
+    background-size: 100%;
+}
+
+#gold {
+    position: fixed;
+    z-index: 1;
+    width: 100px;
+    height: 20px;
+    top: 2%;
+    right: 2%;
+    background-color: gold;
+    border: 5px solid goldenrod;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+}
+
+.battlescene {
+    height: 100%;
+    width: 60%;
+    margin: auto;
+}
+
+#monster {
+    height: 350px;
+    width: 280px;
+    margin-top: 5%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#monster_img {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.level {
+    font-size: 25px;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
+#level {
+    font-size: 25px;
+    color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2%;
+    text-align: center;
+}
+
+#monster-hp {
+    height: 25px;
+    width: 250px;
+    background-color: red;
+    margin-bottom: 3%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#player-info {
+    margin-top: 15%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#player-hp-text {
+    font-size: 25px;
+    color: white;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+#player-hp {
+    height: 30px;
+    width: 300px;
+    background-color: green;
+    display: inline-block;
+}
+
+#on-death {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    visibility: hidden;
+    z-index: 4;
+    animation-name: op;
+    animation-delay: inherit;
+    animation-timing-function: ease-in-out;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-play-state: paused;
+}
+
+@keyframes op {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
